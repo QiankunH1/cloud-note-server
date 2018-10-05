@@ -4,9 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongooseConnect=require('./model/config')
+var session = require('express-session')
 
 var indexRouter = require('./routes/index');
 var app = express();
+
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

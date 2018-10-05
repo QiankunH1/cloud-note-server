@@ -10,8 +10,8 @@ const user = new mongoose.Schema({
     password:String,
     desc:String
 },{versionKey:false,timestamps:{createdAt:'createTime',updatedAt:'updateTime'}})
-userModel=mongoose.model("user",user)
-module.exports=userModel
+// userModel=mongoose.model("user",user)
+// module.exports=userModel
 
 
-// module.exports = mongoose.model("user",user)
+module.exports = mongoose.model("user",user)
